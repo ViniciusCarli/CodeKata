@@ -35,34 +35,33 @@ begin
   Vetor := TArray<Integer>.Create(2, 4, 6, 10, 20,45);
   Sup := High(Vetor);
   Inf := Low(Vetor);
-  Meio := Round(High(Vetor) / 2);
 
   Write('Digite o numero' + #10, #13);
-
   Readln(Numero);
 
   while Inf <= Sup do
   begin
-
+    Meio := Round((Sup + Inf) / 2);
     if Numero = Vetor[Meio] then
     begin
       WriteLn('Igual = ' + IntToStr(Meio));
+      ReadLn;
       exit;
-    end;
+    end
 
-    if Vetor[Meio] > Numero then
+    else if Vetor[Meio] > Numero then
     begin
       Sup := Meio - 1;
       WriteLn('AA ' + IntToStr(Sup));
-      Readln;
-    end;
-    if Vetor[Meio] < Numero then
+      continue;
+    end
+    else if Vetor[Meio] < Numero then
     begin
       Inf := Meio + 1;
       WriteLn('BB ' + IntToStr(Inf));
-      Readln;
+      continue;
     end;
-
+    Readln;
   end;
 
 end.
