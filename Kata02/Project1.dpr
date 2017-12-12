@@ -4,8 +4,7 @@ program Project1;
 {$R *.res}
 
 uses
-  System.SysUtils,
-  Unit1 in 'Unit1.pas';
+  System.SysUtils;
 
 type
   TForm1 = class
@@ -15,13 +14,25 @@ type
   public
 
   end;
+  // implementation
+  { TForm1 }
+
+  // function TForm1.Chop(Vetor: TArray<Integer>; Numero: Integer): Integer;
+  // var
+  // Meio: Integer;
+  // begin
+  // Writeln('teste');
+  // Vetor := TArray<Integer>.Create(1, 2, 3, 4, 5);
+  // Meio := Round(High(Vetor) / 2);
+
+  // end;
 
 var
   Vetor: TArray<Integer>;
   Numero, Meio, Sup, Inf: Integer;
 
 begin
-  Vetor := TArray<Integer>.Create(2, 4, 6, 10, 20,45,100,350,999);
+  Vetor := TArray<Integer>.Create(2, 4, 6, 10, 20,45);
   Sup := High(Vetor);
   Inf := Low(Vetor);
 
@@ -34,19 +45,23 @@ begin
     if Numero = Vetor[Meio] then
     begin
       WriteLn('Igual = ' + IntToStr(Meio));
-      Break;
-    end else if Vetor[Meio] > Numero then
+      ReadLn;
+      exit;
+    end
+
+    else if Vetor[Meio] > Numero then
     begin
       Sup := Meio - 1;
-      WriteLn(IntToStr(Sup));
+      WriteLn('AA ' + IntToStr(Sup));
+      continue;
     end
     else if Vetor[Meio] < Numero then
     begin
       Inf := Meio + 1;
-      WriteLn(IntToStr(Inf));
+      WriteLn('BB ' + IntToStr(Inf));
+      continue;
     end;
+    Readln;
   end;
-
-  Readln;
 
 end.
