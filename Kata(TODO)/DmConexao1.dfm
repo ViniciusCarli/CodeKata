@@ -5,6 +5,7 @@ object DmConexao: TDmConexao
   object SQLConnection1: TSQLConnection
     ConnectionName = 'Devart PostgreSQL'
     DriverName = 'DevartPostgreSQL'
+    LoginPrompt = False
     Params.Strings = (
       'BlobSize=-1'
       'HostName=localhost:5432'
@@ -19,7 +20,6 @@ object DmConexao: TDmConexao
       'IPVersion=IPv4'
       'UseUnicode=True'
       'Charset=')
-    Connected = True
     Left = 32
     Top = 8
   end
@@ -47,7 +47,7 @@ object DmConexao: TDmConexao
       Size = 9
     end
   end
-  object DsLista: TDataSetProvider
+  object DspLista: TDataSetProvider
     DataSet = SqlLista
     Left = 32
     Top = 128

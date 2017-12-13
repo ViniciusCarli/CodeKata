@@ -11,10 +11,9 @@ object ListaForm: TListaForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object DBGrid1: TDBGrid
+  object GridLista: TDBGrid
     Left = 8
     Top = 48
     Width = 561
@@ -33,6 +32,7 @@ object ListaForm: TListaForm
       end>
   end
   object dsLista: TDataSource
+    DataSet = DmConexao.SqlLista
     Left = 592
     Top = 248
   end

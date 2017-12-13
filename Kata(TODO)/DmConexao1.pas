@@ -4,13 +4,13 @@ interface
 
 uses
   System.SysUtils, System.Classes, DbxDevartPostgreSQL, Data.FMTBcd,
-  Datasnap.Provider, Data.DB, Data.SqlExpr, DmCliente, Datasnap.DBClient;
+  Datasnap.Provider, Data.DB, Data.SqlExpr, Datasnap.DBClient;
 
 type
   TDmConexao = class(TDataModule)
     SQLConnection1: TSQLConnection;
     SqlLista: TSQLQuery;
-    DsLista: TDataSetProvider;
+    DspLista: TDataSetProvider;
     SqlListaTarefa: TWideStringField;
     SqlListaData: TDateField;
     SqlListaPessoa: TWideStringField;
@@ -26,7 +26,7 @@ var
 
 implementation
 
-{%CLASSGROUP 'Vcl.Controls.TControl'}
+{ %CLASSGROUP 'Vcl.Controls.TControl' }
 
 {$R *.dfm}
 

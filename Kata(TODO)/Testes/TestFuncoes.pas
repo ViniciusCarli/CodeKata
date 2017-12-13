@@ -1,6 +1,5 @@
 unit TestFuncoes;
 
-
 interface
 
 uses
@@ -12,14 +11,21 @@ type
 
   TesteLista = class(TTestCase)
   published
+    // procedure TestarDataNula;
     procedure TestarDataMaiorAtual;
     procedure TestarDataMenorAtual;
-    {procedure TestarData }
 
+    procedure TestarStatusNulo;
+    procedure TestarStatusAgendado;
+    procedure TestarStatusFinalizado;
+    procedure TestarStatusAdiado;
+    procedure TestarStatusOutro;
+
+    procedure TestarTarefaNula;
+    procedure TestarTrefaNaoNula;
   end;
 
 implementation
-
 
 { TesteLista }
 
@@ -35,8 +41,56 @@ begin
   CheckEquals(0, TFuncoes.ChecarData(EncodeDate(2017, 12, 11)))
 end;
 
+// procedure TesteLista.TestarDataNula;
+// begin
+// CheckEquals(2, TFuncoes.ChecarData(EncodeDate(0000,00,00)))
+// end;
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+procedure TesteLista.TestarStatusFinalizado;
+begin
+  CheckEquals('1', TFuncoes.ChecarStatus('Finalizado'))
+end;
+
+procedure TesteLista.TestarStatusAdiado;
+begin
+  CheckEquals('2', TFuncoes.ChecarStatus('Adiado'))
+end;
+
+procedure TesteLista.TestarStatusAgendado;
+begin
+  CheckEquals('0', TFuncoes.ChecarStatus('Agendado'))
+end;
+
+procedure TesteLista.TestarStatusNulo;
+begin
+  CheckEquals('0', TFuncoes.ChecarStatus(''))
+end;
+
+procedure TesteLista.TestarStatusOutro;
+begin
+  CheckEquals('', TFuncoes.ChecarStatus('Exemplo'))
+end;
+
+
+ ////////////////////////////////////////////////////////////////////
+
+
+procedure TesteLista.TestarTarefaNula;
+begin
+  CheckEquals('0', TFuncoes.ChecarTarefa(''))
+end;
+
+procedure TesteLista.TestarTrefaNaoNula;
+begin
+  CheckEquals('1', TFuncoes.ChecarTarefa('exemplo'));
+end;
+
 initialization
+
 TestFramework.RegisterTest(TesteLista.Suite);
 
 end.
-

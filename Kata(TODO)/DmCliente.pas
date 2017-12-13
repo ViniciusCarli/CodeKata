@@ -8,6 +8,10 @@ uses
 type
   TDmCliente1 = class(TDataModule)
     CdsLista: TClientDataSet;
+    CdsListaTarefa: TWideStringField;
+    CdsListaData: TDateField;
+    CdsListaPessoa: TWideStringField;
+    CdsListaStatus: TWideStringField;
   private
     { Private declarations }
   public
@@ -15,11 +19,11 @@ type
   end;
 
 var
-  DmCliente1: TDmCliente1 ;
+  DmCliente1: TDmCliente1;
 
 implementation
 
-{%CLASSGROUP 'Vcl.Controls.TControl'}
+{ %CLASSGROUP 'Vcl.Controls.TControl' }
 
 {$R *.dfm}
 

@@ -5,8 +5,23 @@ object DmCliente1: TDmCliente1
   object CdsLista: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'DsLista'
-    Left = 32
+    ProviderName = 'DspLista'
+    Left = 24
     Top = 40
+    object CdsListaTarefa: TWideStringField
+      FieldName = 'Tarefa'
+      Size = 22
+    end
+    object CdsListaData: TDateField
+      FieldName = 'Data'
+    end
+    object CdsListaPessoa: TWideStringField
+      FieldName = 'Pessoa'
+      Size = 15
+    end
+    object CdsListaStatus: TWideStringField
+      FieldName = 'Status'
+      Size = 9
+    end
   end
 end
