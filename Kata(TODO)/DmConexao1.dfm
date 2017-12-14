@@ -43,8 +43,9 @@ object DmConexao: TDmConexao
       Size = 15
     end
     object SqlListaStatus: TWideStringField
+      DisplayWidth = 15
       FieldName = 'Status'
-      Size = 9
+      Size = 15
     end
   end
   object DspLista: TDataSetProvider

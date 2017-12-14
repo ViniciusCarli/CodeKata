@@ -20,8 +20,10 @@ object DmCliente1: TDmCliente1
       Size = 15
     end
     object CdsListaStatus: TWideStringField
+      DisplayWidth = 15
       FieldName = 'Status'
-      Size = 9
+      Required = True
+      Size = 15
     end
   end
 end

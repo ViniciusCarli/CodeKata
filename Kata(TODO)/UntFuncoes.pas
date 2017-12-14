@@ -6,6 +6,7 @@ uses System.SysUtils, System.DateUtils;
 
 type
   TTipoData = (tdNula, tdMenorHoje, tdMaiorHoje);
+
   TFuncoes = Class
 
     class function ChecarData(Data_Usuario: Variant): TTipoData;

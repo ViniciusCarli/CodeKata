@@ -5,7 +5,9 @@ uses
   UntPrincipal in 'UntPrincipal.pas' {ListaForm},
   DmConexao1 in 'DmConexao1.pas' {DmConexao: TDataModule},
   DmCliente in 'DmCliente.pas' {DmCliente1: TDataModule},
-  UntFuncoes in 'UntFuncoes.pas';
+  UntFuncoes in 'UntFuncoes.pas',
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
