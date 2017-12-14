@@ -2,7 +2,7 @@ object ListaForm: TListaForm
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 299
+  ClientHeight = 318
   ClientWidth = 635
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,10 +11,11 @@ object ListaForm: TListaForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object GridLista: TDBGrid
-    Left = 8
+    Left = 9
     Top = 48
     Width = 561
     Height = 217
@@ -25,14 +26,16 @@ object ListaForm: TListaForm
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        Visible = True
-      end>
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Top = 271
+    Width = 560
+    Height = 25
+    DataSource = dsLista
+    TabOrder = 1
   end
   object dsLista: TDataSource
-    DataSet = DmConexao.SqlLista
     Left = 592
     Top = 248
   end

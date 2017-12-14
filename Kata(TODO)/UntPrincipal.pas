@@ -6,12 +6,13 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  DmConexao1, DmCliente;
+  DmConexao1, DmCliente, Vcl.ExtCtrls, Vcl.DBCtrls;
 
 type
   TListaForm = class(TForm)
     GridLista: TDBGrid;
     dsLista: TDataSource;
+    DBNavigator1: TDBNavigator;
     procedure FormCreate(Sender: TObject);
   private
     FLista: TDmConexao;

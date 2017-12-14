@@ -11,7 +11,7 @@ type
 
   TesteLista = class(TTestCase)
   published
-    // procedure TestarDataNula;
+    procedure TestarDataNula;
     procedure TestarDataMaiorAtual;
     procedure TestarDataMenorAtual;
 
@@ -33,21 +33,18 @@ uses UntFuncoes, System.DateUtils;
 
 procedure TesteLista.TestarDataMaiorAtual;
 begin
-  CheckEquals(1, TFuncoes.ChecarData(EncodeDate(2017, 12, 30)))
+  CheckEquals(Ord(tdMaiorHoje), Ord(TFuncoes.ChecarData(Tomorrow)));
 end;
 
 procedure TesteLista.TestarDataMenorAtual;
 begin
-  CheckEquals(0, TFuncoes.ChecarData(EncodeDate(2017, 12, 11)))
+  CheckEquals(Ord(tdMenorHoje), Ord(TFuncoes.ChecarData(Yesterday)));
 end;
 
-// procedure TesteLista.TestarDataNula;
-// begin
-// CheckEquals(2, TFuncoes.ChecarData(EncodeDate(0000,00,00)))
-// end;
-
-
-///////////////////////////////////////////////////////////////////////
+procedure TesteLista.TestarDataNula;
+begin
+  CheckEquals(Ord(tdNula), Ord(TFuncoes.ChecarData(Null)));
+end;
 
 
 procedure TesteLista.TestarStatusFinalizado;
@@ -67,21 +64,18 @@ end;
 
 procedure TesteLista.TestarStatusNulo;
 begin
-  CheckEquals('0', TFuncoes.ChecarStatus(''))
+  CheckEquals('Nulo', TFuncoes.ChecarStatus(''))
 end;
 
 procedure TesteLista.TestarStatusOutro;
 begin
-  CheckEquals('', TFuncoes.ChecarStatus('Exemplo'))
+  CheckEquals('Outro', TFuncoes.ChecarStatus('Exemplo'))
 end;
-
-
- ////////////////////////////////////////////////////////////////////
 
 
 procedure TesteLista.TestarTarefaNula;
 begin
-  CheckEquals('0', TFuncoes.ChecarTarefa(''))
+  CheckEquals('Nulo', TFuncoes.ChecarTarefa(''))
 end;
 
 procedure TesteLista.TestarTrefaNaoNula;

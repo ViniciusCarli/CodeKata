@@ -2,7 +2,7 @@
   tarefas
   datas
   status
-  whodid
+  pessoas
 
 exibir todas concluidas e em aberto
 
