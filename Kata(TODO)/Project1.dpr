@@ -7,7 +7,8 @@ uses
   DmCliente in 'DmCliente.pas' {DmCliente1: TDataModule},
   UntFuncoes in 'UntFuncoes.pas',
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  Unit1 in 'Unit1.pas' {Form1};
 
 {$R *.res}
 
@@ -17,5 +18,6 @@ begin
   Application.CreateForm(TListaForm, ListaForm);
   Application.CreateForm(TDmConexao, DmConexao);
   Application.CreateForm(TDmCliente1, DmCliente1);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

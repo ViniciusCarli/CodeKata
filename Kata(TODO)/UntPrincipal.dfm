@@ -17,13 +17,13 @@ object ListaForm: TListaForm
   object Panel1: TPanel
     Left = 32
     Top = 8
-    Width = 705
+    Width = 689
     Height = 281
     Caption = 'Panel1'
     TabOrder = 0
     object GridLista: TDBGrid
       Left = 16
-      Top = 39
+      Top = 41
       Width = 561
       Height = 217
       DataSource = dsLista
@@ -43,18 +43,18 @@ object ListaForm: TListaForm
       TabOrder = 1
       OnClick = btnSalvarClick
     end
-    object btnEditar: TButton
+    object btnAdicionar: TButton
       Left = 583
-      Top = 101
+      Top = 91
       Width = 75
       Height = 25
-      Caption = 'Editar'
+      Caption = 'Adicionar'
       TabOrder = 2
-      OnClick = btnEditarClick
+      OnClick = btnAdicionarClick
     end
     object btnAtualizar: TButton
       Left = 583
-      Top = 70
+      Top = 65
       Width = 75
       Height = 25
       Caption = 'Atualizar'
@@ -63,53 +63,48 @@ object ListaForm: TListaForm
     end
     object GroupBox1: TGroupBox
       Left = 583
-      Top = 132
+      Top = 148
       Width = 98
       Height = 124
       Caption = 'Status'
       TabOrder = 4
       object checkBoxAgendadas: TCheckBox
-        Left = 3
-        Top = 40
+        Left = 0
+        Top = 16
         Width = 78
         Height = 17
         Caption = 'Agendadas'
         TabOrder = 0
-        OnClick = checkBoxAgendadasClick
       end
       object checkBoxFinalizadas: TCheckBox
-        Left = 3
-        Top = 63
+        Left = 0
+        Top = 39
         Width = 92
         Height = 17
         Caption = 'Finalizadas'
         TabOrder = 1
-        OnClick = checkBoxFinalizadasClick
-      end
-      object checkBoxTodas: TCheckBox
-        Left = 3
-        Top = 17
-        Width = 97
-        Height = 17
-        Caption = 'Todas'
-        Checked = True
-        State = cbChecked
-        TabOrder = 2
-        OnClick = checkBoxTodasClick
       end
       object checkBoxAdiadas: TCheckBox
-        Left = 3
-        Top = 86
+        Left = 0
+        Top = 62
         Width = 97
         Height = 17
         Caption = 'Adiadas'
+        TabOrder = 2
+      end
+      object Button1: TButton
+        Left = 0
+        Top = 85
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
         TabOrder = 3
-        OnClick = checkBoxAdiadasClick
+        OnClick = Button1Click
       end
     end
   end
   object dsLista: TDataSource
-    Left = 8
-    Top = 280
+    Left = 32
+    Top = 296
   end
 end

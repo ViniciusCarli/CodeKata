@@ -22,6 +22,7 @@ uses
 
 { TFuncoes }
 
+
 class function TFuncoes.ChecarData(Data_Usuario: Variant): TTipoData;
 begin
   if VarIsNull(Data_Usuario) then

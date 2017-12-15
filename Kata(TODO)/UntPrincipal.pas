@@ -14,25 +14,26 @@ type
     dsLista: TDataSource;
     btnSalvar: TButton;
     btnAtualizar: TButton;
-    btnEditar: TButton;
+    btnAdicionar: TButton;
     checkBoxAgendadas: TCheckBox;
     Panel1: TPanel;
     GroupBox1: TGroupBox;
     checkBoxFinalizadas: TCheckBox;
-    checkBoxTodas: TCheckBox;
     checkBoxAdiadas: TCheckBox;
-    procedure ChecarCheckBoxes;
+    Button1: TButton;
+    procedure CriarFilterAdequado;
     procedure btnAtualizarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Salvar;
     procedure Atualizar;
     procedure Adicionar;
-    procedure btnEditarClick(Sender: TObject);
-    procedure checkBoxAdiadasClick(Sender: TObject);
-    procedure checkBoxAgendadasClick(Sender: TObject);
-    procedure checkBoxFinalizadasClick(Sender: TObject);
-    procedure checkBoxTodasClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+//    procedure checkBoxAdiadasClick(Sender: TObject);
+//    procedure checkBoxAgendadasClick(Sender: TObject);
+//    procedure checkBoxFinalizadasClick(Sender: TObject);
+//    procedure checkBoxTodasClick(Sender: TObject);
   private
     FLista: TDmConexao;
     FCliente: TDmCliente1;
@@ -42,6 +43,7 @@ type
 
 var
   ListaForm: TListaForm;
+  StatusAdiconados : String;
 
 implementation
 
@@ -54,6 +56,35 @@ begin
   FCliente := TDmCliente1.Create(Self);
 
   FCliente.CdsLista.SetProvider(FLista.DspLista);
+end;
+
+procedure TListaForm.CriarFilterAdequado;
+const
+  BoxAdiada = 'Status = ''Adiada''';
+  BoxAgendada = 'Status = ''Agendada''';
+  BoxFinalizada = 'Status = ''Finalizada''';
+var
+  Filtro: string;
+
+  procedure Adicionar(Valor: string);
+  begin
+    if not Filtro.IsEmpty then
+      Filtro := Filtro + ' or ';
+    Filtro := Filtro + Valor
+  end;
+begin
+  if checkBoxAdiadas.Checked then
+    Adicionar(BoxAdiada);
+
+  if checkBoxAgendadas.Checked then
+    Adicionar(BoxAgendada);
+
+  if checkBoxFinalizadas.Checked then
+    Adicionar(BoxFinalizada);
+
+  FCliente.CdsLista.Filter := Filtro;
+  FCliente.CdsLista.Filtered := True;
+//  FCliente.CdsLista.Filtered := not Filtro.IsEmpty;
 end;
 
 procedure TListaForm.Adicionar;
@@ -71,7 +102,7 @@ begin
   Atualizar
 end;
 
-procedure TListaForm.btnEditarClick(Sender: TObject);
+procedure TListaForm.btnAdicionarClick(Sender: TObject);
 begin
   Adicionar
 end;
@@ -81,70 +112,69 @@ begin
   Salvar
 end;
 
-procedure TListaForm.ChecarCheckBoxes;
+procedure TListaForm.Button1Click(Sender: TObject);
 begin
-  //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  CriarFilterAdequado
 end;
 
-procedure TListaForm.checkBoxAdiadasClick(Sender: TObject);
-begin
-  if checkBoxAdiadas.Checked then
-  begin
-    FCliente.CdsLista.Filter := 'status = ''Adiada''';
-    FCliente.CdsLista.Filtered := True;
-  end
-  else
-  begin
-    FCliente.CdsLista.Filter := '';
-    FCliente.CdsLista.Filtered := False;
-  end;
+//procedure TListaForm.checkBoxAdiadasClick(Sender: TObject);
+//begin
+//  if checkBoxAdiadas.Checked then
+//  begin
+//    FCliente.CdsLista.Filter := FCliente.CdsLista.Filter + 'status = ''Adiada''';
+//    FCliente.CdsLista.Filtered := True;
+//  end
+//  else
+//  begin
+//    FCliente.CdsLista.Filter := '';
+//    FCliente.CdsLista.Filtered := False;
+//  end;
 
+//end;
 
-end;
+//procedure TListaForm.checkBoxAgendadasClick(Sender: TObject);
+//begin
+//  if checkBoxAgendadas.Checked then
+//  begin
+//    FCliente.CdsLista.Filter := FCliente.CdsLista.Filter + 'status = ''Agendada''';
+//    FCliente.CdsLista.Filtered := True;
+//  end
+//  else
+//  begin
+//    FCliente.CdsLista.Filter := '';
+//    FCliente.CdsLista.Filtered := False;
+//  end;
 
-procedure TListaForm.checkBoxAgendadasClick(Sender: TObject);
-begin
-  if checkBoxAgendadas.Checked then
-  begin
-    FCliente.CdsLista.Filter := 'status = ''Agendada''';
-    FCliente.CdsLista.Filtered := True;
-  end
-  else
-  begin
-    FCliente.CdsLista.Filter := '';
-    FCliente.CdsLista.Filtered := False;
-  end;
+//end;
 
-end;
+//procedure TListaForm.checkBoxFinalizadasClick(Sender: TObject);
+//begin
+//  if checkBoxFinalizadas.Checked then
+//  begin
+//    FCliente.CdsLista.Filter := 'status = ''Finalizada''';
+//    FCliente.CdsLista.Filtered := True;
+//  end
+//  else
+//  begin
+//    FCliente.CdsLista.Filter := '';
+//    FCliente.CdsLista.Filtered := False;
+//  end;
 
-procedure TListaForm.checkBoxFinalizadasClick(Sender: TObject);
-begin
-  if checkBoxFinalizadas.Checked then
-  begin
-    FCliente.CdsLista.Filter := 'status = ''Finalizada''';
-    FCliente.CdsLista.Filtered := True;
-  end
-  else
-  begin
-    FCliente.CdsLista.Filter := '';
-    FCliente.CdsLista.Filtered := False;
-  end;
+//end;
 
-end;
-
-procedure TListaForm.checkBoxTodasClick(Sender: TObject);
-begin
-  if not checkBoxTodas.Checked then
-  begin
-    FCliente.CdsLista.Filter := 'status = ''Finalizada'' and ''status'' = ''Agendada'' and ''status'' = ''Adiadas''';
-    FCliente.CdsLista.Filtered := True;
-  end
-  else
-  begin
-    FCliente.CdsLista.Filter := '';
-    FCliente.CdsLista.Filtered := False;
-  end;
-end;
+//procedure TListaForm.checkBoxTodasClick(Sender: TObject);
+//begin
+//  if not checkBoxTodas.Checked then
+//  begin
+//    FCliente.CdsLista.Filter := 'status = ''Finalizada'' and ''status'' = ''Agendada'' and ''status'' = ''Adiadas''';
+//    FCliente.CdsLista.Filtered := True;
+//  end
+//  else
+//  begin
+//    FCliente.CdsLista.Filter := '';
+//    FCliente.CdsLista.Filtered := False;
+//  end;
+//end;
 
 procedure TListaForm.FormCreate(Sender: TObject);
 begin
