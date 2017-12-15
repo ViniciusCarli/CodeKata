@@ -1,7 +1,7 @@
 object DmConexao: TDmConexao
   OldCreateOrder = False
   Height = 194
-  Width = 217
+  Width = 106
   object SQLConnection1: TSQLConnection
     ConnectionName = 'Devart PostgreSQL'
     DriverName = 'DevartPostgreSQL'

@@ -30,10 +30,6 @@ type
     procedure Adicionar;
     procedure btnAdicionarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-//    procedure checkBoxAdiadasClick(Sender: TObject);
-//    procedure checkBoxAgendadasClick(Sender: TObject);
-//    procedure checkBoxFinalizadasClick(Sender: TObject);
-//    procedure checkBoxTodasClick(Sender: TObject);
   private
     FLista: TDmConexao;
     FCliente: TDmCliente1;
@@ -84,7 +80,6 @@ begin
 
   FCliente.CdsLista.Filter := Filtro;
   FCliente.CdsLista.Filtered := True;
-//  FCliente.CdsLista.Filtered := not Filtro.IsEmpty;
 end;
 
 procedure TListaForm.Adicionar;
@@ -117,64 +112,6 @@ begin
   CriarFilterAdequado
 end;
 
-//procedure TListaForm.checkBoxAdiadasClick(Sender: TObject);
-//begin
-//  if checkBoxAdiadas.Checked then
-//  begin
-//    FCliente.CdsLista.Filter := FCliente.CdsLista.Filter + 'status = ''Adiada''';
-//    FCliente.CdsLista.Filtered := True;
-//  end
-//  else
-//  begin
-//    FCliente.CdsLista.Filter := '';
-//    FCliente.CdsLista.Filtered := False;
-//  end;
-
-//end;
-
-//procedure TListaForm.checkBoxAgendadasClick(Sender: TObject);
-//begin
-//  if checkBoxAgendadas.Checked then
-//  begin
-//    FCliente.CdsLista.Filter := FCliente.CdsLista.Filter + 'status = ''Agendada''';
-//    FCliente.CdsLista.Filtered := True;
-//  end
-//  else
-//  begin
-//    FCliente.CdsLista.Filter := '';
-//    FCliente.CdsLista.Filtered := False;
-//  end;
-
-//end;
-
-//procedure TListaForm.checkBoxFinalizadasClick(Sender: TObject);
-//begin
-//  if checkBoxFinalizadas.Checked then
-//  begin
-//    FCliente.CdsLista.Filter := 'status = ''Finalizada''';
-//    FCliente.CdsLista.Filtered := True;
-//  end
-//  else
-//  begin
-//    FCliente.CdsLista.Filter := '';
-//    FCliente.CdsLista.Filtered := False;
-//  end;
-
-//end;
-
-//procedure TListaForm.checkBoxTodasClick(Sender: TObject);
-//begin
-//  if not checkBoxTodas.Checked then
-//  begin
-//    FCliente.CdsLista.Filter := 'status = ''Finalizada'' and ''status'' = ''Agendada'' and ''status'' = ''Adiadas''';
-//    FCliente.CdsLista.Filtered := True;
-//  end
-//  else
-//  begin
-//    FCliente.CdsLista.Filter := '';
-//    FCliente.CdsLista.Filtered := False;
-//  end;
-//end;
 
 procedure TListaForm.FormCreate(Sender: TObject);
 begin

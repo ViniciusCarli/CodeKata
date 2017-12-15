@@ -15,6 +15,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Silver');
   Application.CreateForm(TListaForm, ListaForm);
   Application.CreateForm(TDmConexao, DmConexao);
   Application.CreateForm(TDmCliente1, DmCliente1);
