@@ -14,11 +14,13 @@ type
     procedure TestarDataMaiorAtual;
     procedure TestarDataMenorAtual;
 
+
     procedure Status_Nulo_RetonatdNula;
     procedure Status_Agendado_Retornar0;
     procedure Status_Finalizado_Retornar1;
     procedure Status_Adiado_Retornar2;
     procedure TestarStatusOutro;
+
 
     procedure TestarTarefaNula;
     procedure TestarTrefaNaoNula;
@@ -45,6 +47,8 @@ begin
   CheckEquals(Ord(tdNula), Ord(TFuncoes.ChecarData(Null)));
 end;
 
+
+
 procedure TesteLista.Status_Finalizado_Retornar1;
 begin
   CheckEquals('1', TFuncoes.ChecarStatus('Finalizado'));
@@ -70,6 +74,8 @@ begin
   CheckEquals('Outro', TFuncoes.ChecarStatus('Exemplo'));
 end;
 
+
+
 procedure TesteLista.TestarTarefaNula;
 begin
   CheckEquals('Nulo', TFuncoes.ChecarTarefa(''));
@@ -77,7 +83,7 @@ end;
 
 procedure TesteLista.TestarTrefaNaoNula;
 begin
-  CheckEquals('1', TFuncoes.ChecarTarefa('exemplo'));
+  CheckEquals('NaoNulo', TFuncoes.ChecarTarefa('exemplo'));
 end;
 
 initialization

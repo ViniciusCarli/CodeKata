@@ -43,17 +43,11 @@ begin
     Result := 'Nulo';
   end
   else if StatusUsuario = 'Finalizado' then
-  begin
     Result := '1'
-  end
   else if StatusUsuario = 'Adiado' then
-  begin
     Result := '2'
-  end
   else if StatusUsuario = 'Agendado' then
-  begin
     Result := '0'
-  end
   else
     Result := 'Outro'
 
@@ -62,13 +56,9 @@ end;
 class function TFuncoes.ChecarTarefa(TarefaUsuario: String): String;
 begin
   if TarefaUsuario = '' then
-  begin
     Result := 'Nulo'
-  end
   else if TarefaUsuario <> '' then
-  begin
-    Result := '1'
-  end;
+    Result := 'NaoNulo'
 
 end;
 

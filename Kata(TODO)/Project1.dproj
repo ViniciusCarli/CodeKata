@@ -100,8 +100,8 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="UntFuncoes.pas"/>
-        <DCCReference Include="Unit1.pas">
-            <Form>Form1</Form>
+        <DCCReference Include="Unit2.pas">
+            <Form>Form2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

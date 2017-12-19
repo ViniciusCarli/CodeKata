@@ -11,7 +11,6 @@ uses
 type
   TListaForm = class(TForm)
     GridLista: TDBGrid;
-    dsLista: TDataSource;
     btnSalvar: TButton;
     btnAtualizar: TButton;
     btnAdicionar: TButton;
@@ -21,6 +20,8 @@ type
     checkBoxFinalizadas: TCheckBox;
     checkBoxAdiadas: TCheckBox;
     Button1: TButton;
+    dsLista: TDataSource;
+    Button2: TButton;
     procedure CriarFilterAdequado;
     procedure btnAtualizarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure Adicionar;
     procedure btnAdicionarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     FLista: TDmConexao;
     FCliente: TDmCliente1;
@@ -44,6 +46,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Unit1, Unit2;
 
 constructor TListaForm.Create(AOwner: TComponent);
 begin
@@ -60,16 +64,17 @@ const
   BoxAgendada = 'Status = ''Agendada''';
   BoxFinalizada = 'Status = ''Finalizada''';
 var
+  Teste : String;
   Filtro: string;
 
   procedure Adicionar(Valor: string);
   begin
     if not Filtro.IsEmpty then
       Filtro := Filtro + ' or ';
-    Filtro := Filtro + Valor
+    Filtro := Filtro + Valor;
   end;
 begin
-  if checkBoxAdiadas.Checked then
+if checkBoxAdiadas.Checked  then
     Adicionar(BoxAdiada);
 
   if checkBoxAgendadas.Checked then
@@ -110,6 +115,11 @@ end;
 procedure TListaForm.Button1Click(Sender: TObject);
 begin
   CriarFilterAdequado
+end;
+
+procedure TListaForm.Button2Click(Sender: TObject);
+begin
+   Form2.ShowModal;
 end;
 
 
